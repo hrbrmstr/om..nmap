@@ -1,0 +1,13 @@
+Package: om..nmap..hrbrmstr
+Type: Package
+Version: 1.0.0
+Title: Outsider module for running nmap
+GitHub: hrbrmstr
+Docker: hrbrmstr
+Description: Install and run nmap from within R.
+Encoding: UTF-8
+Depends:
+    R (>= 3.5.3)
+Imports:
+    outsider
+RoxygenNote: 6.1.1
