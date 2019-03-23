@@ -21,6 +21,7 @@ nmap <- function(...) {
 
   if (out) {
     fils <- list.files(td, full.names = TRUE)
+    print(str(fils))
     fils <- lapply(fils, readLines)
     fils <- stats::setNames(fils, basename(fils))
     return(fils)
