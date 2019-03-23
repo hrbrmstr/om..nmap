@@ -20,10 +20,9 @@ nmap <- function(...) {
   out <- outsider::.run(otsdr)
 
   if (out) {
-    fils <- list.files(td, full.names = TRUE)
-    print(str(fils))
-    fils <- lapply(fils, readLines)
-    fils <- stats::setNames(fils, basename(fils))
+    fil_names <- list.files(td, full.names = TRUE)
+    fils <- lapply(fil_names, function(x) paste0(readLines(x), collapse = "\n"))
+    fils <- stats::setNames(fils, basename(fil_names))
     return(fils)
   } else {
     return(out)
