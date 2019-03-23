@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions.R
 \name{nmap}
 \alias{nmap}
-\title{nmap}
+\title{Perform an nmap scan}
 \usage{
 nmap(...)
 }
@@ -10,10 +10,16 @@ nmap(...)
 \item{...}{Arguments}
 }
 \description{
-Run nmap
+Run `nmap` with any command-line arguments you want. If you use any
+             `nmap` outptut directives, make sure to save the output to `/working_dir/FILESPEC`
+             so the output will be returned. All the output files will be returned from 
+             top-level of `/working_dir` in a named list. The assumption is made that
+             the caller is returning scan output so no attempt is made to read raw (binary) 
+             data. See the Examples for a sample command-line that returns XML reports.
 }
 \examples{
 library(outsider)
 nmap <- module_import('nmap', repo = 'hrbrmstr/om..nmap')
 nmap('-h')  # or --help or whichever argument prints help
+nmap("-v", "-oX", "/working_dir/outputfile.xml", "-sS", "localhost")
 }
